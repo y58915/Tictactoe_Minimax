@@ -1,0 +1,71 @@
+// checks the current board for a winner
+// Returns the current state of the board:
+// 1 = AI wins, 2 = opponent wins
+// 3 = tie, 0 = game not finished
+int terminal_test(int ** board, int row, int column)
+{
+ // fill in this part
+ // you should already have the code to check for a winner from the previous lab
+
+
+
+}
+
+
+
+// minimax decision
+// Returns best action with coordinates (X, Y)
+// This function has been completed for you
+pair<int, int> minimax_decision(int ** board, int row, int column)
+{
+   int X = -1, Y = -1;
+   int returnVal = -100;
+
+   // for each action
+   for (int i = 0; i< row; i++) {
+     for (int j = 0; j< column; j++) {
+
+       if (board[i][j] == EMPTY)
+       {
+          // simulate the action
+          board[i][j] = ai; // ai is a variable with value 1 (X) or 2 (O), depending on what the AI is playing
+
+          int newVal = min_value(board, row, column);
+  
+          if (newVal > returnVal)
+          {
+             returnVal = newVal;
+             X = i;
+             Y = j;
+          }
+
+          // undo the simulated action
+          board[i][j] = EMPTY;
+        }
+
+     }
+   }
+
+   return pair<int, int>(X, Y);
+}
+
+
+// max value, returns a utility value of 1 = AI wins / 0 = tie / -1 = opponent wins
+int max_value(int ** board, int row, int column)
+{
+
+ // fill in this part
+
+
+}
+
+
+
+// min value, returns a utility value of 1 = AI wins / 0 = tie / -1 = opponent wins
+int min_value(int ** board, int row, int column)
+{
+ // fill in this part
+
+
+
+}
